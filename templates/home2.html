@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FWI Prediction</title>
+    <!-- Add necessary CSS links here, e.g., Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f1f1f1;
+            font-family: Arial, sans-serif;
+
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            margin-bottom: 30px;
+        }
+
+        form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            background-color: #007bff;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <h1>FWI Prediction</h1>
+                    <!-- Main Input For Receiving Query to our ML -->
+                    <form action="{{ url_for('predict_datapoint')}}" method="post">
+                        <input type="text" name="Temperature" placeholder="Temperature" required="required"><br>
+                        <input type="text" name="RH" placeholder="RH" required="required"><br>
+                        <input type="text" name="Ws" placeholder="Ws" required="required"><br>
+                        <input type="text" name="Rain" placeholder="Rain" required="required"><br>
+                        <input type="text" name="FFMC" placeholder="FFMC" required="required"><br>
+                        <input type="text" name="DMC" placeholder="DMC" required="required"><br>
+                        <input type="text" name="ISI" placeholder="ISI" required="required"><br>
+                        <input type="text" name="Classes" placeholder="Classes" required="required"><br>
+                        <input type="text" name="Region" placeholder="Region" required="required" /><br>
+                        <button type="submit" class="btn btn-primary">Predict</button>
+                    </form>
+                </div>
+                <h2>THE FWI prediction is {{result}}</h2>
+            </div>
+        </div>
+    </div>
+    <!-- Add necessary JavaScript scripts here, if required -->
+</body>
+</html>
+
